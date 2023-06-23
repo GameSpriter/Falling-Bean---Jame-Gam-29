@@ -10,6 +10,7 @@ public class BeanRandomizer : MonoBehaviour
     public bool Randomize(GameObject bean)
     {
         BeanScriptableObject bso = BeanSOs[Random.Range(0, BeanSOs.Length)];
+        bean.GetComponent<Bean>().BeanScriptableObject = bso;
         bean.GetComponentInChildren<SpriteRenderer>().color = bso.color;
         bean.name = bso.Name;
 
