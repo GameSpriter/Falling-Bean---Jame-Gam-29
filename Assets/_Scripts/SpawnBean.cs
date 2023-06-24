@@ -39,6 +39,7 @@ public class SpawnBean : MonoBehaviour
     private void MouseDown()
     {
         mouseStartingPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        GetComponentInChildren<DrawDragLine>().StartLineDraw();
     }
 
     private void MouseUp()
@@ -49,6 +50,8 @@ public class SpawnBean : MonoBehaviour
         float forcePerUnit = (ForceMax - ForceMin) / DrawDistanceMax;
         float finalForce = (forcePerUnit * distance) + ForceMin;
         SpawnNewBean(finalForce);
+        
+        GetComponentInChildren<DrawDragLine>().EndLineDraw();
     }
 
     private bool SpawnNewBean(float force)
@@ -66,4 +69,5 @@ public class SpawnBean : MonoBehaviour
 
         return true;
     }
+    
 }
