@@ -23,9 +23,7 @@ public class DrawDragLine : MonoBehaviour
     {
         RenderLine = true;
         _LineRenderer.enabled = true;
-        _LineRenderer.positionCount = 2;
         _LineRenderer.SetPosition(0, Camera.main.ScreenToWorldPoint(Input.mousePosition) + transform.localPosition);
-        _LineRenderer.useWorldSpace = true;
     }
 
     public void EndLineDraw() {
