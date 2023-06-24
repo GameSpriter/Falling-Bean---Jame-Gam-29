@@ -20,9 +20,6 @@ public class SpawnBean : MonoBehaviour
     [SerializeField]
     private int DrawDistanceMax;
 
-    [SerializeField]
-    private float VerticalForcePercentage;
-
     private Vector3 mouseStartingPosition;
 
     private void Awake()
@@ -49,23 +46,20 @@ public class SpawnBean : MonoBehaviour
         if (distance < 0) distance = 0;
         float forcePerUnit = (ForceMax - ForceMin) / DrawDistanceMax;
         float finalForce = (forcePerUnit * distance) + ForceMin;
-        SpawnNewBean(finalForce);
+        SpawnNewBean(finalForce * (mouseStartingPosition - Camera.main.ScreenToWorldPoint(Input.mousePosition)).normalized);
         
         GetComponentInChildren<DrawDragLine>().EndLineDraw();
     }
 
-    private bool SpawnNewBean(float force)
+    private bool SpawnNewBean(Vector2 force)
     {
         if (LastSpawn + SpawnTime > Time.time) return false;
 
         LastSpawn = Time.time;
-        GameObject bean = Instantiate(BeanPrefab, transform.position, Quaternion.identity);
+        GameObject bean = Instantiate(BeanPrefab, transform.position, Quaternion.Euler(0, 0, Random.Range(0.0f, 360.0f)));
         GetComponent<BeanRandomizer>().Randomize(bean);
 
-        bean.GetComponent<Rigidbody2D>().AddForce(
-            Vector2.right * force 
-            + Vector2.up * force * VerticalForcePercentage
-        );
+        bean.GetComponent<Rigidbody2D>().AddForce(force);
 
         return true;
     }
