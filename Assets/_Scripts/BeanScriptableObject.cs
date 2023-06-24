@@ -17,17 +17,34 @@ public class BeanScriptableObject : ScriptableObject
     public float rbGravityScale = 1.0f;
 
     public bool Initialize(GameObject beanGameObject) {
+        if (!InitializeBean(beanGameObject)) return false;
+        if (!InitializeRigidBody(beanGameObject)) return false;
+
+        return true;
+    }
+
+    public bool InitializeBean(GameObject beanGameObject)
+    {
         beanGameObject.name = Name;
         beanGameObject.GetComponentInChildren<SpriteRenderer>().color = color;
+        beanGameObject.transform.localScale = new Vector3(1, 1, 1);
         beanGameObject.transform.localScale *= Scale;
 
+        return true;
+    }
+
+    public bool InitializeRigidBody(GameObject beanGameObject)
+    {
         Rigidbody2D rb = beanGameObject.GetComponent<Rigidbody2D>();
+        if (rb) return false;
+
         rb.bodyType = rbType;
         if (rbPhysicsMaterial) rb.sharedMaterial = rbPhysicsMaterial;
         rb.mass = rbMass;
         rb.drag = rbLinearDrag;
         rb.angularDrag = rbAngularDrag;
         rb.gravityScale = rbGravityScale;
+
         return true;
     }
 

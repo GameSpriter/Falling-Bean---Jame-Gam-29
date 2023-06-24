@@ -7,12 +7,21 @@ public class BeanRandomizer : MonoBehaviour
     [SerializeField]
     private BeanScriptableObject[] BeanSOs;
 
+    private BeanScriptableObject NextBean;
+
+    private void Awake()
+    {
+        NextBean = BeanSOs[Random.Range(0, BeanSOs.Length)];
+        NextBean.InitializeBean(gameObject);
+    }
+
     public bool Randomize(GameObject bean)
     {
-        BeanScriptableObject bso = BeanSOs[Random.Range(0, BeanSOs.Length)];
-        bean.GetComponent<Bean>().BeanScriptableObject = bso;
-        bso.Initialize(bean);
-
+        bean.GetComponent<Bean>().BeanScriptableObject = NextBean;
+        NextBean.Initialize(bean);
+        NextBean = BeanSOs[Random.Range(0, BeanSOs.Length)];
+        NextBean.InitializeBean(gameObject);
+        
         return true;
     }
 }
