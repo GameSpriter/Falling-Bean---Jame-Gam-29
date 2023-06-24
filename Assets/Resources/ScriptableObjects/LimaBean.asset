@@ -14,3 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: LimaBean
   color: {r: 0.15690638, g: 0.7735849, b: 0.20231836, a: 1}
+  Scale: 1.2
+  Score: 3
+  rbType: 0
+  rbPhysicsMaterial: {fileID: 0}
+  rbMass: 1.2
+  rbLinearDrag: 0
+  rbAngularDrag: 0.05
+  rbGravityScale: 1

@@ -18,7 +18,12 @@ public class SpawnBean : MonoBehaviour
     private int ForceMax;
 
     [SerializeField]
+    private int DrawDistanceMax;
+
+    [SerializeField]
     private float VerticalForcePercentage;
+
+    private Vector3 mouseStartingPosition;
 
     private void Awake()
     {
@@ -27,17 +32,38 @@ public class SpawnBean : MonoBehaviour
 
     void Update()
     {
-        if (!Input.GetMouseButtonDown(0)) return;
+        if (Input.GetMouseButtonDown(0)) MouseDown();
+        if (Input.GetMouseButtonUp(0)) MouseUp();
+    }
 
-        if (LastSpawn + SpawnTime > Time.time) return;
+    private void MouseDown()
+    {
+        mouseStartingPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    private void MouseUp()
+    {
+        float distance = Vector3.Distance(mouseStartingPosition, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        if (distance > DrawDistanceMax) distance = DrawDistanceMax;
+        if (distance < 0) distance = 0;
+        float forcePerUnit = (ForceMax - ForceMin) / DrawDistanceMax;
+        float finalForce = (forcePerUnit * distance) + ForceMin;
+        SpawnNewBean(finalForce);
+    }
+
+    private bool SpawnNewBean(float force)
+    {
+        if (LastSpawn + SpawnTime > Time.time) return false;
 
         LastSpawn = Time.time;
         GameObject bean = Instantiate(BeanPrefab, transform.position, Quaternion.identity);
+        GetComponent<BeanRandomizer>().Randomize(bean);
+
         bean.GetComponent<Rigidbody2D>().AddForce(
-            Vector2.right * Random.Range(ForceMin, ForceMax) 
-            + Vector2.up * Random.Range(ForceMin, ForceMax) * VerticalForcePercentage
+            Vector2.right * force 
+            + Vector2.up * force * VerticalForcePercentage
         );
 
-        GetComponent<BeanRandomizer>().Randomize(bean);
+        return true;
     }
 }
