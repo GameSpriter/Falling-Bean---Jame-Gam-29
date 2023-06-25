@@ -27,7 +27,7 @@ public class BeanScriptableObject : ScriptableObject
     {
         beanGameObject.name = Name;
         beanGameObject.GetComponentInChildren<SpriteRenderer>().color = color;
-        beanGameObject.transform.localScale = new Vector3(1, 1, 1);
+        beanGameObject.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
         beanGameObject.transform.localScale *= Scale;
 
         return true;
@@ -39,7 +39,7 @@ public class BeanScriptableObject : ScriptableObject
         if (rb) return false;
 
         rb.bodyType = rbType;
-        if (rbPhysicsMaterial) rb.sharedMaterial = rbPhysicsMaterial;
+        //if (rbPhysicsMaterial) rb.sharedMaterial = rbPhysicsMaterial;
         rb.mass = rbMass;
         rb.drag = rbLinearDrag;
         rb.angularDrag = rbAngularDrag;
