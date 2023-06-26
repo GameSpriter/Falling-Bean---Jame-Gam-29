@@ -3,6 +3,9 @@ using UnityEngine;
 public class ScoreController : MonoBehaviour
 {
     public static ScoreController Singleton;
+
+    [SerializeField]
+    private int LevelCompleteScore;
     private int Score = 0;
     [SerializeField]
     private TMPro.TMP_Text TMPScoreText;
@@ -23,6 +26,6 @@ public class ScoreController : MonoBehaviour
     public void UpdateScore()
     {
         if (!TMPScoreText) return;
-        TMPScoreText.text = "" + Score;
+        TMPScoreText.text = "" + Score + " / " + LevelCompleteScore;
     }
 }
