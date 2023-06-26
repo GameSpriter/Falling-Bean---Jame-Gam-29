@@ -19,6 +19,7 @@ public class ScoreBean : MonoBehaviour
     }
 
     public void UpdateScore() {
+        if (!TMPScoreText) return;
         TMPScoreText.text = "" + Score;
     }
 }

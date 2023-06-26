@@ -17,7 +17,8 @@ MonoBehaviour:
   Scale: 1
   Score: 3
   rbType: 0
-  rbPhysicsMaterial: {fileID: 0}
+  rbPhysicsMaterialFriction: 0.05
+  rbPhysicsMaterialBounciness: 0
   rbMass: 1
   rbLinearDrag: 0
   rbAngularDrag: 0.05

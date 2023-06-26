@@ -10,7 +10,8 @@ public class BeanScriptableObject : ScriptableObject
     public int Score = 3;
 
     public RigidbodyType2D rbType = RigidbodyType2D.Dynamic;
-    public PhysicsMaterial2D rbPhysicsMaterial;
+    public float rbPhysicsMaterialFriction = 0.05f;
+    public float rbPhysicsMaterialBounciness = 0.0f;
     public float rbMass = 1.0f;
     public float rbLinearDrag = 0.0f;
     public float rbAngularDrag = 0.05f;
@@ -36,10 +37,12 @@ public class BeanScriptableObject : ScriptableObject
     public bool InitializeRigidBody(GameObject beanGameObject)
     {
         Rigidbody2D rb = beanGameObject.GetComponent<Rigidbody2D>();
-        if (rb) return false;
+        if (!rb) return false;
 
         rb.bodyType = rbType;
-        //if (rbPhysicsMaterial) rb.sharedMaterial = rbPhysicsMaterial;
+        if (!rb.sharedMaterial) rb.sharedMaterial = new PhysicsMaterial2D();
+        rb.sharedMaterial.bounciness = rbPhysicsMaterialBounciness;
+        rb.sharedMaterial.friction = rbPhysicsMaterialFriction;
         rb.mass = rbMass;
         rb.drag = rbLinearDrag;
         rb.angularDrag = rbAngularDrag;

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d4491f802aec56b4ab0d14b7e0f5b95d
+guid: 26fa094692c7b99468511861d6c17c20
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,15 +45,15 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 640
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 47, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -123,38 +123,42 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Curve_0
+      name: Play Button_0
       rect:
         serializedVersion: 2
-        x: 191
-        y: 1
-        width: 554
-        height: 537
+        x: 8
+        y: 180
+        width: 624
+        height: 280
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e0bbc4073a40c34d90411ac3f889e63
-      internalID: 1645932005
+      spriteID: ef146223172d9bc47ae3f5c4791d225e
+      internalID: -959502197
       vertices: []
       indices: 
       edges: []
       weights: []
-    outline: []
+    outline:
+    - - {x: -320, y: 139.5}
+      - {x: -320, y: -139.5}
+      - {x: 275, y: -139.5}
+      - {x: 275, y: 139.5}
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Curve_0: 1645932005
+      Play Button_0: -959502197
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
