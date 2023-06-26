@@ -19,9 +19,19 @@ public class BeanRandomizer : MonoBehaviour
     {
         bean.GetComponent<Bean>().BeanScriptableObject = NextBean;
         NextBean.Initialize(bean);
-        NextBean = BeanSOs[Random.Range(0, BeanSOs.Length)];
+        RandomizeNextBean();
         NextBean.InitializeBean(gameObject);
         
+        return true;
+    }
+
+    private bool RandomizeNextBean()
+    {
+        BeanScriptableObject lastBean = NextBean;
+        NextBean = BeanSOs[Random.Range(0, BeanSOs.Length)];
+
+        if(lastBean.Name == NextBean.Name) RandomizeNextBean();
+
         return true;
     }
 }
