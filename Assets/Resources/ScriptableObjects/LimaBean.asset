@@ -15,9 +15,10 @@ MonoBehaviour:
   Name: LimaBean
   color: {r: 0.15690638, g: 0.7735849, b: 0.20231836, a: 1}
   Scale: 1.2
-  Score: 3
+  Score: 2
   rbType: 0
-  rbPhysicsMaterial: {fileID: 6200000, guid: cf40d79442a03c6468cec3876ec682bd, type: 2}
+  rbPhysicsMaterialFriction: 0
+  rbPhysicsMaterialBounciness: 0
   rbMass: 1.2
   rbLinearDrag: 0
   rbAngularDrag: 0.05

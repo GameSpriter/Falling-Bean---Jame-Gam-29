@@ -33,7 +33,7 @@ Transform:
   - {fileID: 7984943063612516411}
   - {fileID: 2274351696261215461}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &8232880383481227384
 BoxCollider2D:
@@ -92,7 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4216abeb78091fd4496ee71f5cdebe13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TMPScoreText: {fileID: 0}
 --- !u!1 &412667881258426188
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +166,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 64
   m_Sprite: {fileID: 21300000, guid: 889fc8b3d81fa5843bae6cacb05f5c67, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8962264, g: 0.89031154, b: 0.81590426, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -251,7 +250,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0a10fa11a989f0a4a9618cd5d112ca24, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8980392, g: 0.89411765, b: 0.81960785, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

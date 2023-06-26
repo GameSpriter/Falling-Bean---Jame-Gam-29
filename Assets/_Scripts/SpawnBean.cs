@@ -54,6 +54,7 @@ public class SpawnBean : MonoBehaviour
     private bool SpawnNewBean(Vector2 force)
     {
         if (LastSpawn + SpawnTime > Time.time) return false;
+        if (!LevelController.Singleton.GetComponent<ShotLimit>().TakeAShot()) return false;
 
         LastSpawn = Time.time;
         GameObject bean = Instantiate(BeanPrefab, transform.position, Quaternion.Euler(0, 0, Random.Range(0.0f, 360.0f)));
